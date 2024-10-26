@@ -1,0 +1,11 @@
+owl-carousel-o {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.owl-item {
+  text-align: center; /* Center text within slides */
+}

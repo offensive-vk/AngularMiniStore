@@ -1,0 +1,63 @@
+<div class="row">
+  <div class="col-md-12">
+    <div class="row">
+      <div class="col-6 mb-3 mb-md-0 col-md-3 text-center">
+        <img src="/assets/img/serv1.svg" class="img-fluid" alt="Services">
+      </div>
+
+      <div class="col-6 mb-3 mb-md-0 col-md-3 text-center">
+        <img src="/assets/img/serv2.svg" class="img-fluid" alt="Services">
+      </div>
+
+      <div class="col-6 col-md-3 text-center">
+        <img src="/assets/img/serv3.svg" class="img-fluid" alt="Services">
+      </div>
+
+      <div class="col-6 col-md-3 text-center">
+        <img src="/assets/img/serv5.svg" class="img-fluid" alt="Services">
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+<div class="row my-5">
+  <h6 class="h3 my-3 border-bottom pb-2">
+    Whole Products
+  </h6>
+  <owl-carousel-o [options]="customOptions">
+    <ng-template carouselSlide *ngFor="let p of products">
+      <div class="col-md-6 mx-auto">
+        <a routerLink="product-detail/{{p.id}}/{{p.name}}" class="text-decoration-none">
+          <img src="{{p.image}}" alt="{{p.name}}" class="img-fluid">
+          <p class="text-center my-3 text-dark">{{p.name}}</p>
+          <p class="text-center text-success fs-6">{{p.price}}</p>
+        </a>
+      </div>
+    </ng-template>
+  </owl-carousel-o>
+
+</div>
+
+
+
+
+<div class="row">
+
+  <h6 class="h3 my-3 border-bottom pb-2">
+    Digitals
+  </h6>
+  <owl-carousel-o [options]="customOptions">
+    <ng-template carouselSlide *ngFor="let p of digitals">
+      <div class="col-md-6 mx-auto">
+        <a routerLink="product-detail/{{p.id}}/{{p.name}}" class="text-decoration-none">
+          <img src="{{p.image}}" alt="{{p.name}}" class="img-fluid">
+          <p class="text-center my-3 text-dark">{{p.name}}</p>
+          <p class="text-center text-success fs-6">{{p.price}}</p>
+        </a>
+      </div>
+    </ng-template>
+  </owl-carousel-o>
+
+</div>

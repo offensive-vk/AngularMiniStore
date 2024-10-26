@@ -1,0 +1,31 @@
+<div class="container-fluid">
+	<div class="row">
+		<h6 class="border-bottom pb-2 mb-4">
+			Category : 
+			<span class="text-warning">
+				{{catName}}
+			</span>
+		</h6>
+
+		<div class="spinner-border text-warning mt-5 mx-auto" role="status" *ngIf="loader">
+		  <span class="visually-hidden">Loading...</span>
+		</div>
+		<p *ngIf="message" class="mt-5 text-center">No such products yet !</p>
+	
+	  	<div class="col-md-4 mb-4" *ngFor="let product of products">
+		    <div class="card p-2">
+		      <img src="{{product.image}}" class="card-img-top img-fluid" alt="{{product.name}}">
+		      <div class="card-body">
+		        <h5 class="card-title">{{product.name}}</h5>
+		        <p class="card-text">{{product.summary}}</p>
+		        <p class="text-muted">
+		          Price : {{product.price}}$
+		        </p>
+		        <a routerLink="/admin-panel/product-detail/{{product.id}}" class="btn btn-outline-primary">See Details</a>
+		        <a routerLink="/admin-panel/edit-product/{{product.id}}" class="btn btn-outline-warning mx-2">Edit</a>
+		      </div>
+		    </div>
+		  </div>
+
+	</div>
+</div>

@@ -1,0 +1,55 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-10 mx-auto">
+      
+
+
+      <section class="vh-100">
+        <div class="container-fluid h-custom">
+          <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col-md-9 col-lg-6 col-xl-5">
+              <img src="/assets/img/system.webp"
+                class="img-fluid" alt="Sample image">
+            </div>
+            <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
+              <div class="alert alert-danger" *ngIf="showError">
+                Wrong or Empty Credentials !
+              </div>
+              <form>
+
+                <!-- Email input -->
+                <div class="form-outline mb-4">
+                  <input type="text" class="form-control form-control-lg"
+                    placeholder="Enter Your username" #username/>
+                  <label class="form-label" for="form3Example3">Username</label>
+                </div>
+
+                <!-- Password input -->
+                <div class="form-outline mb-3">
+                  <input type="password" class="form-control form-control-lg"
+                    placeholder="Enter password" #password />
+                  <label class="form-label" for="form3Example4">Password</label>
+                </div>
+
+                <div class="text-center text-lg-start mt-4 pt-2">
+                  <input  type="submit" class="btn btn-primary btn-lg"
+                    style="padding-left: 2.5rem; padding-right: 2.5rem;" value="Login"
+                    (click)="login($event,username.value, password.value)">
+                  <p class="small fw-bold mt-2 pt-1 mb-0">
+                  Don't have an account? So i'm sorry You can't login !
+                  </p>
+                </div>
+
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+
+
+    </div>
+  </div>
+</div>
+<br>

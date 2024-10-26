@@ -1,0 +1,54 @@
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-3 mx-auto">
+			<div class="spinner-border text-warning mt-5" role="status" *ngIf="loader === true">
+			  <span class="visually-hidden">Loading...</span>
+			</div>
+			<p *ngIf="message" class="mt-5">No such products yet !</p>
+		</div>
+		@for(p of product; track p)
+		{
+		<h6 class="border-bottom pb-2 mb-4">
+			Category : 
+			<span class="text-warning">
+				{{p.category}} / {{p.subCategory}}
+			</span>
+		</h6>
+		<div class="col-10 col-sm-12 mb-5">
+			<img src="{{p.image}}" alt="{{p.name}}" class="img-fluid">
+			<h5 class="text-secondary">
+				Product Name :
+				<span class="text-dark">
+					{{p.name}}
+				</span>
+			</h5>
+			<h5 class="text-secondary">
+				Brand :
+				<span class="text-dark">
+					{{p.brand}}
+				</span>
+			</h5>
+			<p class="text-secondary">
+				Price :
+				<span class="text-success">
+					{{p.price}} Tomans
+				</span>
+			</p>
+			<p class="text-secondary">
+				Product Summary :
+				<span class="text-dark">
+					{{p.summary}}
+				</span>
+			</p>
+			<p class="text-secondary">
+				Product Description :
+				<span class="text-dark">
+					{{p.description}}
+				</span>
+			</p>
+		</div>
+	}
+	</div>
+</div>
+
+
