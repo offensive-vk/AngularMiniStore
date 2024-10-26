@@ -1,6 +1,6 @@
 # Angular Mini Store
 
-This project was generated with
+This template was generated with
 [Angular CLI](https://github.com/angular/angular-cli) version 18.2.0.
 
 ## Development server

@@ -1,0 +1,35 @@
+name: CI / Lint & Build
+
+on:
+  schedule:
+    - cron: "0 */4 * * *"
+  push:
+    branches: ["master", "**"]
+  pull_request:
+    branches: ["master", "**"]
+  workflow_dispatch:
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [18.x, 19.x, 20.x, 21.x, 22.x]
+
+    name: Lint and Build
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Deno
+        uses: denoland/setup-deno@v2
+        with:
+          deno-version: v2.x
+
+      - name: Setup pnpm@v9
+        run: npm i -g pnpm@9.0.0; pnpm -v
+
+      - name: Deno Format
+        run: deno fmt
+
+      - name: Build the Project
+        run: deno task build
