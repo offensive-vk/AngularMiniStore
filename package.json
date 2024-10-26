@@ -4,7 +4,7 @@
   "scripts": {
     "ng": "ng",
     "dev": "ng serve --hmr --ssl --verbose --watch",
-    "build": "ng build",
+    "build": "ng build --prod --aot --verbose --progress --source-map",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },

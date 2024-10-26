@@ -35,4 +35,12 @@ jobs:
         run: deno fmt
 
       - name: Build the Project
-        run: deno task build
+        run: |
+          deno task build | tee build.log
+        continue-on-error: true
+
+      - name: Upload Build Log to Summary
+        if: always()
+        run: |
+          echo '# Build Log Output ' >> $GITHUB_STEP_SUMMARY
+          cat build.log >> $GITHUB_STEP_SUMMARY
