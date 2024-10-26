@@ -10,12 +10,8 @@ on:
   workflow_dispatch:
 
 jobs:
-  lint:
+  deno:
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node-version: [18.x, 19.x, 20.x, 21.x, 22.x]
-
     name: Lint & Build
     steps:
       - uses: actions/checkout@v4

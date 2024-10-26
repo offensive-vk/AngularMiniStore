@@ -89,5 +89,11 @@ jobs:
     runs-on: ubuntu-latest
     name: Send Summary
     steps:
-      - name: Job Summary
+    
+      - name: Job Summary - Success
+        if: success()
         run: echo "# 🎉 Build job was successful...." >> $GITHUB_STEP_SUMMARY
+
+      - name: Job Summary - Failure
+        if: failure()
+        run: echo "# ⚠️ Build job was failed...." >> $GITHUB_STEP_SUMMARY
