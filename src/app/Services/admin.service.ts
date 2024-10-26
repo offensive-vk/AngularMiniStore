@@ -1,11 +1,10 @@
-import { Injectable } from '@angular/core';
+import { Injectable } from "@angular/core";
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: "root",
 })
 export class AdminService {
-
-  constructor() { }
+  constructor() {}
 
   isAdmin: boolean = false;
 
@@ -17,7 +16,7 @@ export class AdminService {
     this.isAdmin = false;
   }
 
-  checkAdmin():boolean {
+  checkAdmin(): boolean {
     return this.isAdmin;
   }
 }

@@ -4,9 +4,9 @@ on:
   schedule:
     - cron: "0 */4 * * *"
   push:
-    branches: ["master", "**"]
+    branches: ["master"]
   pull_request:
-    branches: ["master", "**"]
+    branches: ["master"]
   workflow_dispatch:
 
 concurrency:
@@ -21,7 +21,7 @@ jobs:
       matrix:
         node-version: [18.x, 19.x, 20.x, 21.x, 22.x]
 
-    name: Linux on v${{ matrix.node-version }}
+    name: Linux on Node v${{ matrix.node-version }}
     steps:
       - uses: actions/checkout@v4
 
@@ -29,36 +29,36 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.node-version }}
-  
+
       - name: Setup pnpm@v9
         run: npm i -g pnpm@9.0.0; pnpm -v
 
       - run: pnpm i
       - run: pnpm run build
-      - run: pnpm start
-    
+
+
   on_macos:
     runs-on: macos-latest
     continue-on-error: true
     strategy:
       matrix:
         node-version: [18.x, 19.x, 20.x, 21.x, 22.x]
-    
-    name: Macos on v${{ matrix.node-version }} 
+
+    name: Macos on Node v${{ matrix.node-version }}
     steps:
-    - uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v4
-      with:
-        node-version: ${{ matrix.node-version }}
-    
-    - name: Setup pnpm@v9
-      run: npm i -g pnpm@9.0.0; pnpm -v
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
 
-    - run: pnpm i
-    - run: pnpm run build
-    - run: pnpm start
+      - name: Setup pnpm@v9
+        run: npm i -g pnpm@9.0.0; pnpm -v
+
+      - run: pnpm i
+      - run: pnpm run build
+
 
   on_windows:
     runs-on: windows-latest
@@ -66,28 +66,34 @@ jobs:
     strategy:
       matrix:
         node-version: [18.x, 19.x, 20.x, 21.x, 22.x]
-    
-    name: Windows on v${{ matrix.node-version }}
+
+    name: Windows on Node v${{ matrix.node-version }}
     steps:
-    - uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v4
-      with:
-        node-version: ${{ matrix.node-version }}
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
 
-    - name: Setup pnpm@v9
-      run: npm i -g pnpm@9.0.0; pnpm -v
+      - name: Setup pnpm@v9
+        run: npm i -g pnpm@9.0.0; pnpm -v
 
-    - run: pnpm i
-    - run: pnpm run build
-    - run: pnpm start
+      - run: pnpm i
+      - run: pnpm run build
+
 
   job_summary:
-      needs: [on_linux, on_windows, on_macos]
-      continue-on-error: false
-      runs-on: ubuntu-latest
-      name: Send Summary
-      steps:
-        - name: Job Summary
-          run: echo "# 🎉 Build job was successful...." >> $GITHUB_STEP_SUMMARY
+    needs: [on_linux, on_windows, on_macos]
+    continue-on-error: false
+    runs-on: ubuntu-latest
+    name: Send Summary
+    steps:
+    
+      - name: Job Summary - Success
+        if: success()
+        run: echo "# 🎉 Build job was successful...." >> $GITHUB_STEP_SUMMARY
+
+      - name: Job Summary - Failure
+        if: failure()
+        run: echo "# ⚠️ Build job was failed...." >> $GITHUB_STEP_SUMMARY

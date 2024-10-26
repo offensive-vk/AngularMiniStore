@@ -1,9 +1,9 @@
 [
   {
-    "id":1, 
-    "image":"/assets/img/Bag.jpg",
+    "id": 1,
+    "image": "/assets/img/Bag.jpg",
     "name": "LC Bag",
-    "summary":"This is a bag, a good bag for all your dreams and works...",
+    "summary": "This is a bag, a good bag for all your dreams and works...",
     "price": 350000,
     "brand": "LC",
     "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste dignissimos explicabo voluptatem odio odit a dolorum maxime distinctio nulla modi officia est, quae facilis repellendus aliquid veritatis esse dolorem, neque delectus eveniet? Aliquid beatae nisi quo, vitae quia provident facere magnam sunt voluptate impedit iure at, esse mollitia autem in?",
@@ -11,10 +11,10 @@
     "subCategory": "Bags"
   },
   {
-    "id":2, 
-    "image":"/assets/img/Shoe.jpg",
+    "id": 2,
+    "image": "/assets/img/Shoe.jpg",
     "name": "Nike Shoes",
-    "summary":"Comfort Shoes, a pair of good shoe for all your works...",
+    "summary": "Comfort Shoes, a pair of good shoe for all your works...",
     "price": 520000,
     "brand": "Nike",
     "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste dignissimos explicabo voluptatem odio odit a dolorum maxime distinctio nulla modi officia est, quae facilis repellendus aliquid veritatis esse dolorem, neque delectus eveniet? Aliquid beatae nisi quo, vitae quia provident facere magnam sunt voluptate impedit iure at, esse mollitia autem in?",
@@ -22,10 +22,10 @@
     "subCategory": "Shoes"
   },
   {
-    "id":3, 
-    "image":"/assets/img/Headphone.jpg",
+    "id": 3,
+    "image": "/assets/img/Headphone.jpg",
     "name": "Black Headphones",
-    "summary":"This is a Headphone, a good Headphone for all your dreams...",
+    "summary": "This is a Headphone, a good Headphone for all your dreams...",
     "price": 700000,
     "brand": "Nia",
     "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste dignissimos explicabo voluptatem odio odit a dolorum maxime distinctio nulla modi officia est, quae facilis repellendus aliquid veritatis esse dolorem, neque delectus eveniet? Aliquid beatae nisi quo, vitae quia provident facere magnam sunt voluptate impedit iure at, esse mollitia autem in?",
@@ -33,10 +33,10 @@
     "subCategory": "Headphones"
   },
   {
-    "id":4, 
-    "image":"/assets/img/laptop.jpg",
+    "id": 4,
+    "image": "/assets/img/laptop.jpg",
     "name": "Asus Notebook",
-    "summary":"This is a Laptop, a good one for all your and works...",
+    "summary": "This is a Laptop, a good one for all your and works...",
     "price": 50000000,
     "brand": "Asus",
     "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste dignissimos explicabo voluptatem odio odit a dolorum maxime distinctio nulla modi officia est, quae facilis repellendus aliquid veritatis esse dolorem, neque delectus eveniet? Aliquid beatae nisi quo, vitae quia provident facere magnam sunt voluptate impedit iure at, esse mollitia autem in?",
@@ -44,10 +44,10 @@
     "subCategory": "Laptop"
   },
   {
-    "id":5, 
-    "image":"/assets/img/SmartWatch.jpg",
+    "id": 5,
+    "image": "/assets/img/SmartWatch.jpg",
     "name": "Apple Watch",
-    "summary":"Want a SmartWatch? so this is a good choice for you...",
+    "summary": "Want a SmartWatch? so this is a good choice for you...",
     "price": 7500000,
     "brand": "Apple",
     "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste dignissimos explicabo voluptatem odio odit a dolorum maxime distinctio nulla modi officia est, quae facilis repellendus aliquid veritatis esse dolorem, neque delectus eveniet? Aliquid beatae nisi quo, vitae quia provident facere magnam sunt voluptate impedit iure at, esse mollitia autem in?",

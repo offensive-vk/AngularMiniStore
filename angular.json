@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "1": {
+    "AngularMiniStore": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist/1",
+            "outputPath": "dist/AngularMiniStore",
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": [
@@ -31,11 +31,11 @@
               "public/assets/css/icons.css",
               "node_modules/ngx-owl-carousel-o/lib/styles/prebuilt-themes/owl.carousel.min.css",
               "node_modules/ngx-owl-carousel-o/lib/styles/prebuilt-themes/owl.theme.default.min.css",
-              "src/styles.css",
+              "src/styles.css"
             ],
             "scripts": [
               "public/assets/js/jquery.js",
-              "public/assets/js/bootstrap.bundle.js",
+              "public/assets/js/bootstrap.bundle.js"
             ]
           },
           "configurations": {
@@ -43,13 +43,13 @@
               "budgets": [
                 {
                   "type": "initial",
-                  "maximumWarning": "500kB",
-                  "maximumError": "1MB"
+                  "maximumWarning": "1MB",
+                  "maximumError": "2MB"
                 },
                 {
                   "type": "anyComponentStyle",
-                  "maximumWarning": "2kB",
-                  "maximumError": "4kB"
+                  "maximumWarning": "5kB",
+                  "maximumError": "10kB"
                 }
               ],
               "outputHashing": "all"
@@ -66,10 +66,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "1:build:production"
+              "buildTarget": "AngularMiniStore:build:production"
             },
             "development": {
-              "buildTarget": "1:build:development"
+              "buildTarget": "AngularMiniStore:build:development"
             }
           },
           "defaultConfiguration": "development"

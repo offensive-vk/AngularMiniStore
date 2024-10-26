@@ -1,28 +1,24 @@
-import { Component , OnInit } from '@angular/core';
-import { RouterLink } from '@angular/router';
-import { pipe , tap , map, from , Observable } from 'rxjs';
-import { CommonModule } from '@angular/common';
-import { HttpClient } from '@angular/common/http';
+import { Component, OnInit } from "@angular/core";
+import { RouterLink } from "@angular/router";
+import { from, map, Observable, pipe, tap } from "rxjs";
+import { CommonModule } from "@angular/common";
+import { HttpClient } from "@angular/common/http";
 
 // import { NoopAnimationsModule } from '@angular/platform-browser/animations';
-import { CarouselModule } from 'ngx-owl-carousel-o';
-import { OwlOptions } from 'ngx-owl-carousel-o';
+import { CarouselModule } from "ngx-owl-carousel-o";
+import { OwlOptions } from "ngx-owl-carousel-o";
 
-import { IProduct } from '../../Interfaces/Product-Interface';
+import { IProduct } from "../../Interfaces/Product-Interface";
 
 @Component({
-  selector: 'app-products',
+  selector: "app-products",
   standalone: true,
-  imports: [ RouterLink ,
-    CarouselModule,
-    CommonModule
-    ],
-  templateUrl: './products.component.html',
-  styleUrl: './products.component.css'
+  imports: [RouterLink, CarouselModule, CommonModule],
+  templateUrl: "./products.component.html",
+  styleUrl: "./products.component.css",
 })
 export class ProductsComponent {
-
-  constructor(private http:HttpClient){}
+  constructor(private http: HttpClient) {}
 
   customOptions: OwlOptions = {
     loop: true,
@@ -31,26 +27,26 @@ export class ProductsComponent {
     pullDrag: true,
     dots: false,
     navSpeed: 700,
-    navText: ['<', '>'],
+    navText: ["<", ">"],
     responsive: {
       0: { items: 1 },
       400: { items: 2 },
       740: { items: 3 },
-      940: { items: 3 }
+      940: { items: 3 },
     },
-    nav: true
+    nav: true,
   };
 
-  products !: IProduct[];
-  digitals !: IProduct[];
-  products$ !: Observable<IProduct[]>;
+  products!: IProduct[];
+  digitals!: IProduct[];
+  products$!: Observable<IProduct[]>;
 
-  ngOnInit(){
-    this.products$ = this.http.get<IProduct[]>('/assets/api/Products.json');
+  ngOnInit() {
+    this.products$ = this.http.get<IProduct[]>("/assets/api/Products.json");
     from(this.products$).pipe(
-      tap(i => this.products = i),
-      map(digitals => digitals.filter(d => d.category == "Digital")),
-      tap(d => this.digitals = d)
-      ).subscribe();
+      tap((i) => this.products = i),
+      map((digitals) => digitals.filter((d) => d.category == "Digital")),
+      tap((d) => this.digitals = d),
+    ).subscribe();
   }
 }

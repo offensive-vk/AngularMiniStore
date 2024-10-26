@@ -1,12 +1,11 @@
-import { Component } from '@angular/core';
+import { Component } from "@angular/core";
 
 @Component({
-  selector: 'app-add-product',
+  selector: "app-add-product",
   standalone: true,
   imports: [],
-  templateUrl: './add-product.component.html',
-  styleUrl: './add-product.component.css'
+  templateUrl: "./add-product.component.html",
+  styleUrl: "./add-product.component.css",
 })
 export class AddProductComponent {
-
 }
