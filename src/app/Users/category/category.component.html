@@ -1,57 +1,67 @@
 <div class="container-fluid mb-5">
-	<div class="row">
-		<div class="col-md-8 mx-auto">
-			<div class="row">
-				<h3 class="border-bottom py-2 mb-4">
-					{{category}}
-					<span *ngIf="subCategory" class="text-danger">
-						/ {{subCategory}}
-					</span>
-				</h3>
+  <div class="row">
+    <div class="col-md-8 mx-auto">
+      <div class="row">
+        <h3 class="border-bottom py-2 mb-4">
+          {{ category }}
+          <span *ngIf="subCategory" class="text-danger">
+            / {{ subCategory }}
+          </span>
+        </h3>
 
-				<div class="spinner-border text-danger mx-auto my-5" role="status" *ngIf="loader">
-				  <span class="visually-hidden">Loading...</span>
-				</div>
+        <div
+          class="spinner-border text-danger mx-auto my-5"
+          role="status"
+          *ngIf="loader"
+        >
+          <span class="visually-hidden">Loading...</span>
+        </div>
 
-				<p class="text-center my-5" *ngIf="empty">
-					No such products yet !
-				</p>
-				<div class="col-md-6 mb-3" *ngFor="let p of products | paginate: { itemsPerPage: itemsPerPage, currentPage: currentPage }">
-					<div class="card">
-						  <div class="row g-0">
-						    <div class="col-md-4">
-						      <img src="{{p.image}}" class="img-fluid rounded-start" alt="{{p.name}}">
-						    </div>
+        <p class="text-center my-5" *ngIf="empty">
+          No such products yet !
+        </p>
+        <div
+          class="col-md-6 mb-3"
+          *ngFor="let p of products | paginate: { itemsPerPage: itemsPerPage, currentPage: currentPage }"
+        >
+          <div class="card">
+            <div class="row g-0">
+              <div class="col-md-4">
+                <img
+                  src="{{p.image}}"
+                  class="img-fluid rounded-start"
+                  alt="{{p.name}}"
+                />
+              </div>
 
-						    <div class="col-md-8">
-						      <div class="card-body">
-						        <h5 class="card-title">{{p.name}}</h5>
-						        <p class="card-text">
-						        	{{p.summary}}
-						        </p>
-						        <p class="text-muted">
-						          Price : {{p.price}}
-						          <a routerLink="/product-detail/{{p.id}}/{{p.name}}" class="btn btn-outline-primary ms-2">
-							        Details
-								   </a>
-						        </p>
-
-						      </div>
-						    </div>
-
-						</div>
-					</div>
-				</div>
-
-
-			</div>
-		</div>
-
-
-	</div>
-		<div class="row">
-			<div class="col-3 mx-auto mt-3 text-center" *ngIf="products.length > 4">
-			  <pagination-controls (pageChange)="currentPage = $event"></pagination-controls>
-			</div>
-		</div>
+              <div class="col-md-8">
+                <div class="card-body">
+                  <h5 class="card-title">{{ p.name }}</h5>
+                  <p class="card-text">
+                    {{ p.summary }}
+                  </p>
+                  <p class="text-muted">
+                    Price : {{ p.price }}
+                    <a
+                      routerLink="/product-detail/{{p.id}}/{{p.name}}"
+                      class="btn btn-outline-primary ms-2"
+                    >
+                      Details
+                    </a>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-3 mx-auto mt-3 text-center" *ngIf="products.length > 4">
+      <pagination-controls
+        (pageChange)="currentPage = $event"
+      ></pagination-controls>
+    </div>
+  </div>
 </div>

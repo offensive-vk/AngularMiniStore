@@ -1,80 +1,105 @@
 <div class="container">
-	<div class="row">
-		<div class="col-md-10 mx-auto">
-			<div class="row">
-				<!-- Admin Menu -->
-				<div class="col-md-3 mb-3">
-					<div class="card">
-						<div class="card-header">
-						Main menu
-						</div>
-						<ul class="list-group list-group-flush">
-							<li class="list-group-item">
-								<i class="bi bi-speedometer2 text-success"></i>
-								<a routerLink="dashboard" class="text-decoration-none text-dark">
-									Dashboard
-								</a>
-							</li>
-							<!-- Products Dropdowns -->
-							<button class="list-group-item text-start" data-bs-toggle="collapse" data-bs-target="#Products" aria-expanded="true" aria-controls="Products">
-								<i class="bi bi-cart text-warning"></i>
-								Products
-							</button>
-							<div class="collapse" id="Products">
-							  <ul (mouseleave)="closeSubCategory()">
-							  	<li class="list-group-item dropdown" *ngFor="let category of categories" (mouseenter)="getSubCategory(category)" (click)="gotoCategory(category)">
-					  		      <a class="text-decoration-none text-dark" routerLink="category/{{category}}">
-						  		      {{category}}
-						  		  </a>
-							  	</li>
-								  	<ul *ngIf="subCatHovered === true" class="list-group dropdown-menu subcategory">
-								  		@for(sub of subCategories; track sub)
-								  		{
-							  			<li class="dropdown-item" routerLink="category/{{sub}}">
-							  				<a  class="text-decoration-none text-dark" routerLink="category/{{sub}}">
-								  				{{sub}}
-							  				</a>
-							  			</li>
-								  		}
-							  		</ul>
-							  </ul>
-							</div>
-							<!-- End Products Dropdowns -->
-							<li class="list-group-item border-top">
-								<i class="bi bi-plus text-success"></i>
-								<a routerLink="add-product" class="text-decoration-none text-dark">
-									Add Products
-								</a>
-							</li>
-							<li class="list-group-item border-top">
-								<i class="bi bi-search text-primary"></i>
-								<a routerLink="search" class="text-decoration-none text-dark">
-									Search Products
-								</a>
-							</li>
-							<li class="list-group-item">
-								<i class="bi bi-person-bounding-box text-danger"></i>
-								<a class="text-decoration-none text-dark">
-									Sellers
-								</a>
-							</li>
-							<li class="list-group-item">
-								<i class="bi bi-check2-square text-success"></i>
-								<a class="text-decoration-none text-dark">
-									Sold
-								</a>
-							</li>
-						</ul>
-					</div>
-				</div>
-				<!-- End of Admin Menu section -->
+  <div class="row">
+    <div class="col-md-10 mx-auto">
+      <div class="row">
+        <!-- Admin Menu -->
+        <div class="col-md-3 mb-3">
+          <div class="card">
+            <div class="card-header">
+              Main menu
+            </div>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item">
+                <i class="bi bi-speedometer2 text-success"></i>
+                <a
+                  routerLink="dashboard"
+                  class="text-decoration-none text-dark"
+                >
+                  Dashboard
+                </a>
+              </li>
+              <!-- Products Dropdowns -->
+              <button
+                class="list-group-item text-start"
+                data-bs-toggle="collapse"
+                data-bs-target="#Products"
+                aria-expanded="true"
+                aria-controls="Products"
+              >
+                <i class="bi bi-cart text-warning"></i>
+                Products
+              </button>
+              <div class="collapse" id="Products">
+                <ul (mouseleave)="closeSubCategory()">
+                  <li
+                    class="list-group-item dropdown"
+                    *ngFor="let category of categories"
+                    (mouseenter)="getSubCategory(category)"
+                    (click)="gotoCategory(category)"
+                  >
+                    <a
+                      class="text-decoration-none text-dark"
+                      routerLink="category/{{category}}"
+                    >
+                      {{ category }}
+                    </a>
+                  </li>
+                  <ul
+                    *ngIf="subCatHovered === true"
+                    class="list-group dropdown-menu subcategory"
+                  >
+                    @for (sub of subCategories; track sub) {
+                      <li class="dropdown-item" routerLink="category/{{sub}}">
+                        <a
+                          class="text-decoration-none text-dark"
+                          routerLink="category/{{sub}}"
+                        >
+                          {{ sub }}
+                        </a>
+                      </li>
+                    }
+                  </ul>
+                </ul>
+              </div>
+              <!-- End Products Dropdowns -->
+              <li class="list-group-item border-top">
+                <i class="bi bi-plus text-success"></i>
+                <a
+                  routerLink="add-product"
+                  class="text-decoration-none text-dark"
+                >
+                  Add Products
+                </a>
+              </li>
+              <li class="list-group-item border-top">
+                <i class="bi bi-search text-primary"></i>
+                <a routerLink="search" class="text-decoration-none text-dark">
+                  Search Products
+                </a>
+              </li>
+              <li class="list-group-item">
+                <i class="bi bi-person-bounding-box text-danger"></i>
+                <a class="text-decoration-none text-dark">
+                  Sellers
+                </a>
+              </li>
+              <li class="list-group-item">
+                <i class="bi bi-check2-square text-success"></i>
+                <a class="text-decoration-none text-dark">
+                  Sold
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <!-- End of Admin Menu section -->
 
-				<!-- Admin Panel Result -->
-				<div class="col-md-9">
-					<router-outlet></router-outlet>
-				</div>
-				<!-- End ofAdmin Panel Result -->
-			</div>
-		</div>
-	</div>
+        <!-- Admin Panel Result -->
+        <div class="col-md-9">
+          <router-outlet></router-outlet>
+        </div>
+        <!-- End ofAdmin Panel Result -->
+      </div>
+    </div>
+  </div>
 </div>

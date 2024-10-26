@@ -1,28 +1,27 @@
-import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { pipe, of, tap, mergeAll, toArray } from 'rxjs';
+import { Component, OnInit } from "@angular/core";
+import { HttpClient } from "@angular/common/http";
+import { mergeAll, of, pipe, tap, toArray } from "rxjs";
 
-import { IProduct } from '../../Interfaces/Product-Interface';
-import { categories } from '../../Interfaces/Category-Enum';
+import { IProduct } from "../../Interfaces/Product-Interface";
+import { categories } from "../../Interfaces/Category-Enum";
 
 @Component({
-  selector: 'app-dashboard',
+  selector: "app-dashboard",
   standalone: true,
   imports: [],
-  templateUrl: './dashboard.component.html',
-  styleUrl: './dashboard.component.css'
+  templateUrl: "./dashboard.component.html",
+  styleUrl: "./dashboard.component.css",
 })
 export class DashboardComponent implements OnInit {
+  constructor(private http: HttpClient) {}
 
-  constructor(private http: HttpClient) { }
-
-  productLength !: number;
-  maxCategory !: string;
+  productLength!: number;
+  maxCategory!: string;
   maxCategoryLength: number = 1;
   categories = Object.values(categories);
 
   ngOnInit() {
-    let product$ = this.http.get('/assets/api/Products.json');
+    let product$ = this.http.get("/assets/api/Products.json");
     of(product$).pipe(
       mergeAll(),
       tap((i) => {
@@ -36,10 +35,11 @@ export class DashboardComponent implements OnInit {
               counter++;
             }
           }
-          if (counter > this.maxCategoryLength)
+          if (counter > this.maxCategoryLength) {
             this.maxCategory = this.categories[c];
+          }
         }
-      })
+      }),
     ).subscribe();
   }
 }

@@ -1,25 +1,62 @@
 <div class="container-fluid mb-5">
-	<div class="row">
-		<div class="col-10">
-			<form class="form-group" *ngFor="let p of product">
-				<input type="text" class="form-control mb-4" placeholder="Product Name" value="{{p.name}}">
-				<input type="text" class="form-control" placeholder="Sammary" value="{{p.summary}}">
-				<input type="text" class="form-control my-4" placeholder="Brand" value="{{p.brand}}">
-				<input type="text" class="form-control mb-4" placeholder="Price" value="{{p.price}}">
-				<label for="categories"> Select Category :</label>
-				<select class="form-select mt-2 mb-4" aria-label="Default select example"
-				(change)="selectSub()" [(ngModel)]="selectedCategory" name="categories"
-				>
-					<option *ngFor="let c of categories" value="{{c}}" [value]="c">{{c}}</option>
-				</select>
-				<label for="subCategory" *ngIf="selectedSubCategory"> Select Subcategory :</label>
-				<select class="form-select mt-2 mb-4" aria-label="Default select example" 
-				 *ngIf="selectedSubCategory">
-					<option *ngFor="let sub of selectedSubCategory" [value]="sub">{{sub}}</option>
-				</select>
-				<textarea class="form-control mb-2" rows="10" placeholder="Description">{{p.description}}</textarea>
-				<input type="submit" value="Edit Product" class="btn btn-warning text-white">
-			</form>
-		</div>
-	</div>
+  <div class="row">
+    <div class="col-10">
+      <form class="form-group" *ngFor="let p of product">
+        <input
+          type="text"
+          class="form-control mb-4"
+          placeholder="Product Name"
+          value="{{p.name}}"
+        />
+        <input
+          type="text"
+          class="form-control"
+          placeholder="Sammary"
+          value="{{p.summary}}"
+        />
+        <input
+          type="text"
+          class="form-control my-4"
+          placeholder="Brand"
+          value="{{p.brand}}"
+        />
+        <input
+          type="text"
+          class="form-control mb-4"
+          placeholder="Price"
+          value="{{p.price}}"
+        />
+        <label for="categories"> Select Category :</label>
+        <select
+          class="form-select mt-2 mb-4"
+          aria-label="Default select example"
+          (change)="selectSub()"
+          [(ngModel)]="selectedCategory"
+          name="categories"
+        >
+          <option *ngFor="let c of categories" value="{{c}}" [value]="c">
+            {{ c }}
+          </option>
+        </select>
+        <label for="subCategory" *ngIf="selectedSubCategory">
+          Select Subcategory :</label>
+        <select
+          class="form-select mt-2 mb-4"
+          aria-label="Default select example"
+          *ngIf="selectedSubCategory"
+        >
+          <option *ngFor="let sub of selectedSubCategory" [value]="sub">
+            {{ sub }}
+          </option>
+        </select>
+        <textarea class="form-control mb-2" rows="10" placeholder="Description"
+        >{{p.description}}</textarea>
+        <input
+          type="submit"
+          value="Edit Product"
+          class="btn btn-warning text-white"
+        />
+      </form>
+    </div>
+  </div>
 </div>

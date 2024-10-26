@@ -1,182 +1,197 @@
 <div class="container-fluid">
-	<div class="row">
-		<div class="col-md-8 mx-auto">
-			@for(p of product; track p)
-			{
-			<nav aria-label="breadcrumb">
-			  <ol class="breadcrumb" >
-			    <li class="breadcrumb-item">Home</li>
-			    <li class="breadcrumb-item" aria-current="page">{{p.category}}</li>
-			    <li class="breadcrumb-item active" aria-current="page">{{p.subCategory}}</li>
-			  </ol>
-			</nav>
+  <div class="row">
+    <div class="col-md-8 mx-auto">
+      @for (p of product; track p) {
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item">Home</li>
+            <li class="breadcrumb-item" aria-current="page">
+              {{ p.category }}
+            </li>
+            <li class="breadcrumb-item active" aria-current="page">
+              {{ p.subCategory }}
+            </li>
+          </ol>
+        </nav>
 
-			<!-- ------------------------------ Product ------------------------------------ -->
-			<section id="product" class="border rounded-3 mb-3">
+        <!-- ------------------------------ Product ------------------------------------ -->
+        <section id="product" class="border rounded-3 mb-3">
+          <div class="container-fluid">
+            <div class="row align-items-center">
+              <div class="col-12 col-lg-4">
+                <div class="row">
+                  <div
+                    class="col-12 col-sm-2 col-md-2 mt-3 mt-sm-5 ps-3 text-center"
+                  >
+                    <ul class="list-unstyled">
+                      <li class="mb-sm-3 d-inline-block">
+                        <a
+                          href="#"
+                          class="border border-2 rounded-3 px-2 pt-2 link-body-emphasis"
+                        >
+                          <i class="bi bi-heart"></i>
+                        </a>
+                      </li>
+                      <li class="mb-sm-3 d-inline-block">
+                        <a
+                          href="#"
+                          class="border border-2 rounded-3 px-2 pt-2 link-body-emphasis"
+                        >
+                          <i class="bi bi-share"></i>
+                        </a>
+                      </li>
+                      <li class="mb-sm-3 d-inline-block">
+                        <a
+                          href="#"
+                          class="border border-2 rounded-3 px-2 pt-2 link-body-emphasis"
+                        >
+                          <i class="bi bi-hdd-rack"></i>
+                        </a>
+                      </li>
+                      <li class="mb-sm-3 d-inline-block">
+                        <a
+                          href="#"
+                          class="border border-2 rounded-3 px-2 pt-2 link-body-emphasis"
+                        >
+                          <i class="bi bi-hourglass"></i>
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                  <!-- ------- End of Mini Icons ----------- -->
 
-				<div class="container-fluid">
-					<div class="row align-items-center">
+                  <!-- ---------- Product Image Gallery ------- -->
 
-						<div class="col-12 col-lg-4">
-							<div class="row">
-								<div class="col-12 col-sm-2 col-md-2 mt-3 mt-sm-5 ps-3 text-center">
-									<ul class="list-unstyled">
-										<li class="mb-sm-3 d-inline-block">
-											<a href="#" class="border border-2 rounded-3 px-2 pt-2 link-body-emphasis">
-												<i class="bi bi-heart"></i>
-											</a>
-										</li>
-										<li class="mb-sm-3 d-inline-block">
-											<a href="#" class="border border-2 rounded-3 px-2 pt-2 link-body-emphasis">
-												<i class="bi bi-share"></i>
-											</a>
-										</li>
-										<li class="mb-sm-3 d-inline-block">
-											<a href="#" class="border border-2 rounded-3 px-2 pt-2 link-body-emphasis">
-												<i class="bi bi-hdd-rack"></i>
-											</a>
-										</li>
-										<li class="mb-sm-3 d-inline-block">
-											<a href="#" class="border border-2 rounded-3 px-2 pt-2 link-body-emphasis">
-												<i class="bi bi-hourglass"></i>
-											</a>
-										</li>
-									</ul>
-								</div>
-								<!-- ------- End of Mini Icons ----------- -->
+                  <div class="col-12 col-sm-10 mt-0 mt-sm-2 mb-5">
+                    <div class="row product-big-image align-items-center">
+                      <div class="col-12">
+                        <img
+                          src="{{p.image}}"
+                          class="img-fluid"
+                          alt="{{p.name}}"
+                          id="big-Image"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                  <!-- ---------- End of Product Image Gallery ------- -->
+                </div>
+              </div>
+              <!-- ------- End of Mini Icons & Product Image Gallery ----------- -->
 
+              <!-- ------- Product Details ----------- -->
+              <div class="col-12 col-lg-8">
+                <div class="row">
+                  <div class="col-12 pt-4">
+                    <h4 class="h5 pb-2">
+                      {{ p.name }}
+                    </h4>
+                    <span class="text-secondary fs-6">
+                      {{ p.summary }}
+                    </span>
+                    <div class="border-bottom pt-2 border-light-subtle"></div>
+                  </div>
+                </div>
 
+                <div class="row my-3">
+                  <div class="col-12 col-md-8 col-lg-9">
+                    <span>
+                      Brand : {{ p.brand }}
+                    </span>
+                    <span class="ms-3">
+                      Category :
+                      <a class="text-decoration-none">
+                        {{ p.category }} / {{ p.subCategory }}
+                      </a>
+                    </span>
 
-								<!-- ---------- Product Image Gallery ------- -->
+                    <div class="clearfix my-3"></div>
 
-								<div class="col-12 col-sm-10 mt-0 mt-sm-2 mb-5">
+                    <span class="text-muted">
+                      Color :
 
-									<div class="row product-big-image align-items-center">
-										<div class="col-12">
-											<img src="{{p.image}}" 
-											class="img-fluid" 
-											alt="{{p.name}}" 
-											id="big-Image">
-										</div>
-									</div>
+                      <span class="radio border rounded-3 me-2 p-2">
+                        <span class="form-switch">
+                          <input
+                            type="radio"
+                            name="color"
+                            class="form-check-input"
+                            value="white"
+                            id="white"
+                          />
+                          <label for="white">
+                            White
+                          </label>
+                        </span>
+                      </span>
+                      <span class="radio border rounded-3 me-2 p-2">
+                        <span class="form-switch">
+                          <input
+                            type="radio"
+                            name="color"
+                            class="form-check-input"
+                            value="black"
+                            id="black"
+                          />
+                          <label for="black">
+                            Black
+                          </label>
+                        </span>
+                      </span>
+                    </span>
 
-								</div>
-								<!-- ---------- End of Product Image Gallery ------- -->
-							</div>
+                    <div class="clearfix my-4"></div>
 
-						</div>
-						<!-- ------- End of Mini Icons & Product Image Gallery ----------- -->
+                    <p class="text-secondary">
+                      <i class="bi-check-circle-fill text-success"></i>
+                      Special service : 7 days garranty
+                    </p>
 
+                    <div class="border-bottom my-3 border-light-subtle"></div>
 
+                    <p class="text-muted">
+                      <i class="bi-shop text-info"></i>
+                      Seller :
+                      <a class="text-decoration-none seller">
+                        Lington
+                      </a>
+                    </p>
+                    <p class="text-muted">
+                      Quality : 85 ٪
+                    </p>
+                    <span class="text-muted">
+                      Packed by Us
+                    </span>
+                    <div class="clearfix my-3"></div>
+                    <img src="/assets/img/warehouse.jpg" alt="Trailer" />
+                    <span class="text-info">
+                      Ready to send !
+                    </span>
 
+                    <div class="border-bottom my-3 border-light-subtle"></div>
 
-						<!-- ------- Product Details ----------- -->
-						<div class="col-12 col-lg-8">
+                    <p class="text-danger fs-3">
+                      Price : {{ p.price }} $
+                    </p>
+                    <a class="btn btn-info btn-lg text-white">
+                      <i class="bi-cart"></i>
+                      Add to Cart
+                    </a>
 
-							<div class="row">
-								<div class="col-12 pt-4">
-									<h4 class="h5 pb-2">
-										 {{p.name}}
-									</h4>
-									<span class="text-secondary fs-6">
-										{{p.summary}}
-									</span>
-									<div class="border-bottom pt-2 border-light-subtle"></div>
-									
-								</div>
-							</div>
-
-
-							<div class="row my-3">
-								<div class="col-12 col-md-8 col-lg-9">
-									<span>
-										Brand : {{p.brand}}
-									</span>
-									<span class="ms-3">
-										Category : 
-										<a class="text-decoration-none">
-											{{p.category}} / {{p.subCategory}}
-										</a>
-									</span>
-
-									<div class="clearfix my-3"></div>
-
-									<span class="text-muted">
-										Color :
-										
-										<span class="radio border rounded-3 me-2 p-2">
-											<span class="form-switch">
-												<input type="radio" name="color" class="form-check-input" value="white" id="white">
-												<label for="white">
-													White
-												</label>
-											</span>
-										</span>
-										<span class="radio border rounded-3 me-2 p-2">
-											<span class="form-switch">
-												<input type="radio" name="color" class="form-check-input" value="black" id="black">
-												<label for="black">
-													Black
-												</label>
-											</span>
-										</span>
-									</span>
-
-									<div class="clearfix my-4"></div>
-
-									<p class="text-secondary">
-										<i class="bi-check-circle-fill text-success"></i>
-										Special service : 7 days garranty 
-									</p>
-
-									<div class="border-bottom my-3 border-light-subtle"></div>
-
-									<p class="text-muted">
-										<i class="bi-shop text-info"></i>
-										Seller : 
-										<a class="text-decoration-none seller">
-											Lington
-										</a>
-									</p>
-									<p class="text-muted">
-										Quality : 85 ٪
-									</p>
-									<span class="text-muted">
-										Packed by Us
-									</span>
-									<div class="clearfix my-3"></div>
-									<img src="/assets/img/warehouse.jpg" alt="Trailer">
-									<span class="text-info">
-										Ready to send !
-									</span>
-
-									<div class="border-bottom my-3 border-light-subtle"></div>
-
-									<p class="text-danger fs-3">
-										Price : {{p.price}} $
-									</p>
-									<a  class="btn btn-info btn-lg text-white">
-										<i class="bi-cart"></i>
-										Add to Cart
-									</a>
-
-									<div class="border-bottom my-3 border-light-subtle"></div>
-									<h6>Product Description :</h6>
-									<p class="text-secondary">
-										{{p.description}}
-									</p>
-								</div>
-							</div>
-						</div>
-						<!-- ------- Product Details ----------- -->
-
-
-					</div>
-				</div>
-				
-			</section>
-			<!-- -------------------------- End of Product ------------------------------------ -->
-		}
-		</div>
-	</div>
+                    <div class="border-bottom my-3 border-light-subtle"></div>
+                    <h6>Product Description :</h6>
+                    <p class="text-secondary">
+                      {{ p.description }}
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <!-- ------- Product Details ----------- -->
+            </div>
+          </div>
+        </section>
+        <!-- -------------------------- End of Product ------------------------------------ -->
+      }
+    </div>
+  </div>
 </div>
