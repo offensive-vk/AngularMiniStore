@@ -1,4 +1,4 @@
-name: CI / Lint & Build
+name: CI
 
 on:
   schedule:
@@ -16,7 +16,7 @@ jobs:
       matrix:
         node-version: [18.x, 19.x, 20.x, 21.x, 22.x]
 
-    name: Lint and Build
+    name: Lint & Build
     steps:
       - uses: actions/checkout@v4
 
@@ -27,6 +27,9 @@ jobs:
 
       - name: Setup pnpm@v9
         run: npm i -g pnpm@9.0.0; pnpm -v
+
+      - name: Install Dependencies
+        run: pnpm i
 
       - name: Deno Format
         run: deno fmt
